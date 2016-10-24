@@ -1,0 +1,7 @@
+dbfmodel/
+tmp/
+tmp_read/
+error/
+log/
+__pycache__/
+
