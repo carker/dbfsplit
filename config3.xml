@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DBFSplitter Author="Chinalions" Version="1.0">
+	<!-- 支持的 CompType: COMP_EQUAL/COMP_NOTEQUAL/COMP_LESS/COMP_NOTLESS/COMP_GREAT/COMP_NOTGREAT, 即 = != < >= > <= -->
+	<!-- 支持的 LinkType: AND/OR -->
+	<!-- 日期通配符示例: 日期为2012年10月06日时, @Y@M@D = 20121006, @XM = A06; 日期为2012年3月10日时, @Y@M@D = 20120310, @XM = 310 -->
+	<!-- 字段类型Type均填string, 程序内部所有类型转化为string后进行匹配 -->
+	<!-- 同一<Filter>节点下的<Field>子节点以FieldID属性作为唯一主键 -->
+	
+
+
+  <!-- 中融-华林-光大-融华一号 需要的深交所数据
+   深圳数据：Sjshb.dbf（回报库），Sjshq.dbf（行情库），Sjsgf.dbf（深交所股份库），Sjsdz.dbf（深交所对账库），LOFJS.dbf（LOF结算库）
+       Sjsxx.dbf（深交所信息），Sjsfx.dbf（深交所发行），Sjsjg.dbf（深交所结果），Sjsmx1.dbf（深交所明细1），Sjsmx2.dbf（深交所明细2）。-->
+  <sysconfig sysdate="20160818" copyresult="yes" okfile="yes" autorun="yes" loglevel="info" email="yes" email_sender_host="mail.chinalions.cn" email_sender_port="25" email_sender_adress="huangming@chinalin.com" email_sender_user="huangming" email_sender_password="=MGZlNjehFXM" email_receivers="huangming@chinalin.com"/>
+   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ" Description="上登结算明细文件">
+  	<!-- <Source      Description="源文件信息"      FileName="\\127.0.0.1\f$\tmp\QSSJ\dcom\SJSGB0729.dbf"/> -->
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\20170711\sjsgb.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\hehe.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\hehe2.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  		<Field FieldID="gbdm1" FieldName="证券账户" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  		<!-- <Field FieldID="gbdm1" FieldName="证券账户" FieldValue="A9A" Type="string" CompType="COMP_EQUAL" LinkType="AND"/> -->
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ2" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\20170711\sjsgb.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\20170711\d\hehe-.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\20170711\d\hehe-2.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ3" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\20170711\sjsgb_0.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\20170711\d\hehe3.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  		<Field FieldID="gbdm1" FieldName="证券账户" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ4" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\20170711\sjsgb_1.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\20170711\d\hehe4.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  		<Field FieldID="gbdm1" FieldName="证券账户" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ5" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\20170711\sjsgb.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\20170711\d\hehe5.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  		<Field FieldID="gbdm1" FieldName="证券账户" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ6" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\20170711\sjsgb.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\20170711\d\hehe6.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  		<Field FieldID="gbdm1" FieldName="证券账户" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ7" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\20170711\sjsgb_3.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\20170711\d\hehe7.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  		<Field FieldID="gbdm1" FieldName="证券账户" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ8" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\20170711\sjsgb_3.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\20170711\d\hehe8.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  		<Field FieldID="gbdm1" FieldName="证券账户" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ9" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\20170711\sjsgb_4.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\20170711\d\hehe9.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  		<Field FieldID="gbdm1" FieldName="证券账户" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ10" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\20170711\sjsgb_5.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\20170711\d\hehe10.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  		<Field FieldID="gbdm1" FieldName="证券账户" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\20170711\sjsgb_6.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\20170711\d\hehe11.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  		<Field FieldID="gbdm1" FieldName="证券账户" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\127.0.0.1\d$\tmp\ipogh.txt"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\@Y@M@Dtest1.tsv"/>
+  	<Destination Description="长城证券2"    SaveName="\\192.101.1.53\d$\@Y@M@Dtest2.tsv"/>
+  	<Filter Description="分拆条件" FilterFlag="\|">
+  		<Field FieldID="1" FieldName="证券账户" FieldValue="A459366481" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="ZSMX" Description="增税明细文件">
+  	<Source      Description="源文件信息"      FileName="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMX@M@D.DBF"/>
+  	<Destination Description="长城证券"    SaveName="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\hehe.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\|" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  		<Field FieldID="mxjsls" FieldName="" TargetFieldID="fkjsls" Type="string" CompType="COMP_INFILE" LinkType="AND"/>
+  	</Filter>
+  </DBFFile>   
+ 
+
+ 
+</DBFSplitter>

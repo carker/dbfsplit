@@ -1,0 +1,10 @@
+[2016-10-24 14:00:12] Dbfsplit.py line:148 ERROR   创建目的路径e:\onedrive\python\project失败
+[2016-10-24 14:00:12] log.py line:213 ERROR   Dbfsplit.py line:145 in createdirs:if not os.path.exists(dir_path): os.makedirs(dir_path)
+[2016-10-24 14:00:12] log.py line:213 ERROR   C:\Python34\lib\os.py line:227 in makedirs:makedirs(head, mode, exist_ok)
+[2016-10-24 14:00:12] log.py line:213 ERROR   C:\Python34\lib\os.py line:227 in makedirs:makedirs(head, mode, exist_ok)
+[2016-10-24 14:00:12] log.py line:213 ERROR   C:\Python34\lib\os.py line:237 in makedirs:mkdir(name, mode)
+[2016-10-24 14:00:12] log.py line:214 ERROR   <class 'PermissionError'>: [WinError 5] 拒绝访问。: 'e:\\onedrive'
+[2016-10-24 14:00:13] process_msg_thread.py line:38 ERROR   task1:SJSHQ_ZR cannot get source dbf: 192.101.1.227\e$\huangming\sjsfw1.DBF
+[2016-10-24 14:00:13] process_msg_thread.py line:38 ERROR   task0:SJSHB_ZR cannot get source dbf: e:\onedrive\python\project\sjsfw.dbf
+[2016-10-24 14:01:00] process_msg_thread.py line:38 ERROR   task1:SJSHQ_ZR cannot get source dbf: 192.101.1.227\e$\huangming\sjsfw1.DBF
+[2016-10-24 14:01:00] process_msg_thread.py line:38 ERROR   task0:SJSHB_ZR cannot get source dbf: e:\onedrive\python\project\sjsfw.dbf

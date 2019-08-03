@@ -49,6 +49,20 @@
        </widget>
       </item>
       <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>   线程数:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="threadnum_spinBox">
+        <property name="value">
+         <number>50</number>
+        </property>
+       </widget>
+      </item>
+      <item>
        <spacer name="horizontalSpacer_2">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -104,7 +118,7 @@
      <widget class="QWidget" name="widget" native="true">
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QTableWidget" name="task_QTableWidget">
+        <widget class="QTableView" name="task_QTableView">
          <property name="contextMenuPolicy">
           <enum>Qt::DefaultContextMenu</enum>
          </property>
@@ -129,20 +143,14 @@
          <property name="sortingEnabled">
           <bool>true</bool>
          </property>
-         <attribute name="horizontalHeaderVisible">
-          <bool>true</bool>
-         </attribute>
-         <attribute name="horizontalHeaderCascadingSectionResizes">
-          <bool>false</bool>
-         </attribute>
          <attribute name="horizontalHeaderDefaultSectionSize">
-          <number>80</number>
+          <number>1</number>
          </attribute>
          <attribute name="horizontalHeaderHighlightSections">
-          <bool>true</bool>
+          <bool>false</bool>
          </attribute>
          <attribute name="horizontalHeaderMinimumSectionSize">
-          <number>20</number>
+          <number>80</number>
          </attribute>
          <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
           <bool>true</bool>
@@ -153,129 +161,15 @@
          <attribute name="verticalHeaderVisible">
           <bool>false</bool>
          </attribute>
-         <attribute name="verticalHeaderHighlightSections">
+         <attribute name="verticalHeaderCascadingSectionResizes">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="verticalHeaderDefaultSectionSize">
+          <number>0</number>
+         </attribute>
+         <attribute name="verticalHeaderShowSortIndicator" stdset="0">
           <bool>false</bool>
          </attribute>
-         <column>
-          <property name="text">
-           <string>任务ID</string>
-          </property>
-          <property name="background">
-           <color>
-            <red>0</red>
-            <green>170</green>
-            <blue>127</blue>
-           </color>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>是否启用</string>
-          </property>
-          <property name="textAlignment">
-           <set>AlignCenter</set>
-          </property>
-          <property name="background">
-           <color>
-            <red>0</red>
-            <green>170</green>
-            <blue>127</blue>
-           </color>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>处理进度</string>
-          </property>
-          <property name="textAlignment">
-           <set>AlignCenter</set>
-          </property>
-          <property name="background">
-           <color>
-            <red>0</red>
-            <green>170</green>
-            <blue>127</blue>
-           </color>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>匹配数</string>
-          </property>
-          <property name="textAlignment">
-           <set>AlignCenter</set>
-          </property>
-          <property name="background">
-           <color>
-            <red>0</red>
-            <green>170</green>
-            <blue>127</blue>
-           </color>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>总记录数</string>
-          </property>
-          <property name="textAlignment">
-           <set>AlignLeading|AlignVCenter</set>
-          </property>
-          <property name="background">
-           <color>
-            <red>0</red>
-            <green>170</green>
-            <blue>127</blue>
-           </color>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>文件编码</string>
-          </property>
-          <property name="background">
-           <color>
-            <red>0</red>
-            <green>170</green>
-            <blue>127</blue>
-           </color>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>文件描述</string>
-          </property>
-          <property name="background">
-           <color>
-            <red>0</red>
-            <green>170</green>
-            <blue>127</blue>
-           </color>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>文件名称</string>
-          </property>
-          <property name="background">
-           <color>
-            <red>0</red>
-            <green>170</green>
-            <blue>127</blue>
-           </color>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>保存名称</string>
-          </property>
-          <property name="background">
-           <color>
-            <red>0</red>
-            <green>170</green>
-            <blue>127</blue>
-           </color>
-          </property>
-         </column>
         </widget>
        </item>
       </layout>
@@ -319,9 +213,9 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="errorlog_PushButton">
+       <widget class="QPushButton" name="reset_pushButton">
         <property name="text">
-         <string>错误日志</string>
+         <string>重置</string>
         </property>
        </widget>
       </item>
@@ -339,9 +233,16 @@
        </spacer>
       </item>
       <item>
-       <widget class="QCheckBox" name="okflag_checkBox">
+       <widget class="QCheckBox" name="newmodel_checkBox">
         <property name="text">
-         <string>生成ok标志</string>
+         <string>重新生成模板文件</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="sendok_PushButton">
+        <property name="text">
+         <string>OK文件</string>
         </property>
        </widget>
       </item>

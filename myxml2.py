@@ -28,15 +28,18 @@ def get_task_from_xml(xmlfile = 'config.xml', sysdate=''):
         target['id'] = i
         target['filter'] = []
         target['destination'] = []
-        target['attrib'] = {x:y for (x,y) in task.attributes.items()}
-        target['source'] = {x:y for (x,y) in task.getElementsByTagName('Source')[0].attributes.items()}
-        target['source']['FileName'] = replace_date(target['source']['FileName'], sysdate)
+        target['attrib'] = {x:y.strip() for (x,y) in task.attributes.items()}
+        target['source'] = {x:y.strip() for (x,y) in task.getElementsByTagName('Source')[0].attributes.items()}
+        target['source']['FileName'] = replace_date(target['source']['FileName'], sysdate).strip().lower()
         destinations = [node.attributes.items() for node in task.getElementsByTagName('Destination')]
         for destination in destinations:
-            destination_dict = {x:y for (x,y) in destination}
-            destination_dict['SaveName'] = replace_date(destination_dict['SaveName'],sysdate)
+            destination_dict = {x:y.strip() for (x,y) in destination}
+            destination_dict['SaveName'] = replace_date(destination_dict['SaveName'],sysdate).strip()
             target['destination'].append(destination_dict)
         filters = task.getElementsByTagName('Filter')[0].getElementsByTagName('Field')
+        tmp = {x:y for (x,y) in task.getElementsByTagName('Filter')[0].attributes.items()}
+        target['filterflag'] = tmp.get('FilterFlag','\s+')
+        target['targetfile'] = replace_date(tmp.get('TargetFile',''), sysdate).strip()
         for one_filter in filters:
             target['filter'].append({x:y for (x,y) in one_filter.attributes.items()})
         data.append(target)
@@ -80,12 +83,20 @@ config = get_sysconfig_from_xml()
 
 if __name__ == '__main__':
     import pprint
+    import json
     data = get_task_from_xml()
     # print(len(data))
     # print(get_sysconfig_from_xml())
     # print(data[0]['id'])
-    print(config)
-    pprint.pprint(data)
+    # print(config)
+    # pprint.pprint(data)
+    # pprint.pprint(data[0])
+    a = json.dumps(data[0])
+    b = json.loads(a)
+    c = data[0]
+    pprint.pprint(b)
+    print(b==c)
+    
 
 
 

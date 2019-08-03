@@ -1,0 +1,1440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DBFSplitter Author="Chinalions" Version="1.0">
+	<!-- 支持的 CompType: COMP_EQUAL/COMP_NOTEQUAL/COMP_LESS/COMP_NOTLESS/COMP_GREAT/COMP_NOTGREAT, 即 = != < >= > <= -->
+	<!-- 支持的 LinkType: AND/OR -->
+	<!-- 日期通配符示例: 日期为2012年10月06日时, @Y@M@D = 20121006, @XM = A06; 日期为2012年3月10日时, @Y@M@D = 20120310, @XM = 310 -->
+	<!-- 字段类型Type均填string, 程序内部所有类型转化为string后进行匹配 -->
+	<!-- 同一<Filter>节点下的<Field>子节点以FieldID属性作为唯一主键 -->
+	
+
+
+  <!-- 中融-华林-光大-融华一号 需要的深交所数据
+   深圳数据：Sjshb.dbf（回报库），Sjshq.dbf（行情库），Sjsgf.dbf（深交所股份库），Sjsdz.dbf（深交所对账库），LOFJS.dbf（LOF结算库）
+       Sjsxx.dbf（深交所信息），Sjsfx.dbf（深交所发行），Sjsjg.dbf（深交所结果），Sjsmx1.dbf（深交所明细1），Sjsmx2.dbf（深交所明细2）。-->
+  <sysconfig sysdate="20160818" copyresult="yes" okfile="yes" autorun="no" loglevel="info"/>
+   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ" Description="上登结算明细文件">
+  	<!-- <Source      Description="源文件信息"      FileName="\\127.0.0.1\f$\tmp\QSSJ\dcom\SJSGB0729.dbf"/> -->
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\@Y@M@D\sjsgb.DBF"/>
+  	<Destination Description="长城证券"    SaveName="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\hehe.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\hehe2.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  		<Field FieldID="gbdm1" FieldName="证券账户" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  		<!-- <Field FieldID="gbdm1" FieldName="证券账户" FieldValue="A9A" Type="string" CompType="COMP_EQUAL" LinkType="AND"/> -->
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ2" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\@Y@M@D\sjsgb.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\@Y@M@D\d\hehe-.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\20170711\d\hehe-2.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ3" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\20170711\sjsgb_0.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\20170711\d\hehe3.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  		<Field FieldID="gbdm1" FieldName="证券账户" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\127.0.0.1\d$\tmp\ipogh.txt"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\@Y@M@Dtest2.tsv"/>
+  	<Filter Description="分拆条件" FilterFlag="\|">
+  		<Field FieldID="1" FieldName="证券账户" FieldValue="A459366481" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ5" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\20170711\sjsgb.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\20170711\d\hehe5.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  		<Field FieldID="gbdm1" FieldName="证券账户" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ6" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\20170711\sjsgb.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\20170711\d\hehe6.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  		<Field FieldID="gbdm1" FieldName="证券账户" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ7" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\20170711\sjsgb_3.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\20170711\d\hehe7.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  		<Field FieldID="gbdm1" FieldName="证券账户" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ8" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\20170711\sjsgb_3.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\20170711\d\hehe8.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  		<Field FieldID="gbdm1" FieldName="证券账户" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ9" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\20170711\sjsgb_4.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\20170711\d\hehe9.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  		<Field FieldID="gbdm1" FieldName="证券账户" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ10" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\20170711\sjsgb_5.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\20170711\d\hehe10.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  		<Field FieldID="gbdm1" FieldName="证券账户" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="上登结算明细文件">
+  	<Source      Description="源文件信息"      FileName="\\192.101.1.53\d$\20170711\sjsgb_6.dbf"/>
+  	<Destination Description="长城证券"    SaveName="\\192.101.1.53\d$\20170711\d\hehe11.dbf"/>
+  	<Filter Description="分拆条件" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+  		<Field FieldID="gbdm1" FieldName="证券账户" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+  	</Filter>
+  </DBFFile>   
+  <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_7.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe7.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_8.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe8.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_9.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe9.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_10.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe10.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_11.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe11.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_12.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe12.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_13.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe13.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_14.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe14.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_15.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe15.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_16.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe16.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_17.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe17.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_18.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe18.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_19.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe19.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_20.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe20.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_21.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe21.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_22.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe22.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_23.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe23.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_24.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe24.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_25.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe25.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_26.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe26.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_27.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe27.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_28.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe28.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_29.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe29.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_30.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe30.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_31.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe31.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_32.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe32.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_33.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe33.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_34.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe34.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_35.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe35.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_36.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe36.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_37.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe37.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_38.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe38.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_39.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe39.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_40.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe40.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_41.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe41.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_42.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe42.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_43.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe43.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_44.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe44.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_45.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe45.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_46.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe46.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_47.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe47.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_48.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe48.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_49.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe49.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_50.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe50.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_51.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe51.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_52.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe52.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_53.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe53.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_54.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe54.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_55.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe55.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_56.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe56.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_57.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe57.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_58.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe58.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_59.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe59.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_60.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe60.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_61.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe61.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_62.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe62.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_63.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe63.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_64.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe64.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_65.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe65.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_66.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe66.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_67.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe67.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_68.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe68.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_69.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe69.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_70.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe70.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_71.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe71.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_72.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe72.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_73.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe73.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_74.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe74.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_75.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe75.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_76.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe76.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_77.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe77.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_78.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe78.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_79.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe79.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_80.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe80.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_81.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe81.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_82.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe82.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_83.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe83.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_84.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe84.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_85.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe85.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_86.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe86.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_87.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe87.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_88.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe88.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_89.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe89.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_90.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe90.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_91.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe91.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_92.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe92.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_93.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe93.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_94.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe94.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_95.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe95.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_96.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe96.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_97.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe97.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_98.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe98.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_99.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe99.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_100.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe100.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_101.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe101.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_102.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe102.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_103.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe103.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_104.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe104.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_105.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe105.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_106.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe106.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_107.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe107.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_108.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe108.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_109.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe109.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_110.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe110.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_111.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe111.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_112.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe112.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_113.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe113.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_114.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe114.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_115.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe115.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_116.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe116.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_117.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe117.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_118.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe118.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_119.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe119.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_120.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe120.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_121.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe121.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_122.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe122.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_123.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe123.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_124.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe124.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_125.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe125.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_126.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe126.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_127.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe127.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_128.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe128.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_129.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe129.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_130.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe130.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_131.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe131.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_132.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe132.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_133.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe133.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_134.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe134.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_135.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe135.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_136.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe136.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_137.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe137.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_138.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe138.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_139.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe139.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_140.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe140.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_141.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe141.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_142.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe142.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_143.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe143.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_144.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe144.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_145.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe145.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_146.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe146.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_147.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe147.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_148.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe148.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_149.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe149.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_150.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe150.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_151.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe151.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_152.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe152.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_153.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe153.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_154.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe154.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_155.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe155.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_156.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe156.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_157.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe157.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_158.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe158.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_159.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe159.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_160.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe160.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_161.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe161.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_162.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe162.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_163.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe163.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_164.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe164.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_165.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe165.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_166.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe166.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_167.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe167.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_168.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe168.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_169.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe169.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_170.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe170.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_171.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe171.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_172.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe172.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_173.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe173.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_174.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe174.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_175.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe175.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_176.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe176.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_177.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe177.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_178.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe178.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_179.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe179.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_180.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe180.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_181.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe181.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_182.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe182.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_183.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe183.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_184.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe184.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_185.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe185.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_186.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe186.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_187.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe187.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_188.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe188.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_189.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe189.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_190.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe190.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_191.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe191.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_192.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe192.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_193.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe193.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_194.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe194.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_195.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe195.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_196.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe196.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_197.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe197.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+      <DBFFile FileID="JSMX_SJKY1_RZRQ11" Description="">
+      	<Source      Description="" FileName="\\192.101.1.53\d$\20170711\sjsgb_198.dbf"/>
+      	<Destination Description="" SaveName="\\192.101.1.53\d$\20170711\d\hehe198.dbf"/>
+      	<Filter Description="" FilterFlag="\s+" TargetFile="\\127.0.0.1\h$\onedrive\python\python3\dbfsplit\ZSMXFK@M@D.DBF">
+      		<Field FieldID="gbdm1" FieldName="" FieldValue="116077" Type="string" CompType="COMP_EQUAL" LinkType="AND"/>
+      	</Filter>
+      </DBFFile>   
+  </DBFSplitter>
